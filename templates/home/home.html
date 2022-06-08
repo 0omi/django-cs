@@ -1,0 +1,90 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contenthome %}
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+
+  .photos{
+    justify-content: center;
+  
+  }
+
+  .name{
+    font-family:“Comic Sans MS”, cursive, sans-serif  ;
+    margin-top: 40px ;
+    margin-bottom: 20px;
+    border: solid 1px;
+    border-radius:50px ;
+    text-align: center;
+  }
+
+  .title{
+    font-family: “Times New Roman”, Times, serif;
+  }
+
+  .content{
+    font-family: “Times New Roman”, Times, serif;
+    margin-top:30PX ;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .wellcome{
+    font-family: oblique;
+        margin-top: 50px;
+        padding: 50px;
+        margin-bottom: 100px;
+  }
+
+  .photo1{
+    width: 100%;
+    height: 100%;
+  }
+
+  .photo2{
+    
+    justify-content: center;
+    display: flex;
+    width: auto;
+
+  }
+
+
+
+</style>
+
+
+<div class="wellcome">
+
+    <h2  ><strong>WELLCOME</strong> to the <mark> KITTEN CROCHET </mark>site.</h2>
+    <h3  >On this site, we present our work</h3>
+  <h4>and also  receive your suggestions and beautiful messages by sending them on the   <a href="{%url 'contact'%}"target="_blank" >contact page.</a> </h4>
+  
+
+
+</div>
+<hr>
+
+
+
+{% for b in pho %} <!-- pho is the value of all images in the database -->
+<div class=" photo2" >
+<div class="photos" >
+<h1 class="name"> {{ b.name }} </h1>
+<div style="border: solid 1px  ; margin-bottom: 50px;" ><img class="photo1" src="{{b.image.url}}" />
+<h4 class="content"> {{ b.content }} </h4></div>
+
+
+</div>
+</div>
+{% endfor %}
+
+
+
+
+
+{% endblock contenthome %}

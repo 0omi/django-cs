@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contentlogin %} 
+{% load crispy_forms_tags %}
+
+<!--Login--> 
+
+<style>
+	.login{
+		border:1px;
+        margin-right :200px;
+        margin-left :200px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+	}
+    .login2{
+        border: outset 5px;
+        background-color: #ffffff;
+    }
+</style>
+
+<div class="login">
+<div class="login2">
+<div class="container py-5">
+<h1>Login</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ login_form|crispy }}
+    <button class="btn btn-primary" type="submit">Login</button>
+</form>
+<p class="text-center">Don't have an account? <a href="{% url 'register' %}">Create an account</a>.</p>
+</div>
+</div>
+</div>
+
+{% endblock contentlogin %}
+
+<!--  
+    This page is from
+    
+    https://ordinarycoders.com/blog/article/django-user-register-login-logout
+-->

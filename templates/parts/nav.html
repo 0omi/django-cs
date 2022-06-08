@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title></title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+        }
+    }
+
+    .messages{
+      padding-left: 510px;
+    }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    
+<main>
+    <h1 class="visually-hidden">Headers examples</h1>
+
+    <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        
+        <a href="https://www.instagram.com/kitten_crochet/"target="_blank" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href=" "/></svg>
+            
+            {% load static %}
+            <img id="logo" src= "{%static 'image/logo.jpg' %}" > 
+            <span class="fs-4"> KITTEN CROCHET</span>
+            </a>
+
+        <style>
+            
+
+            a:visited {color: #000000;}
+            a:hover {color: #3e483e;}
+
+        </style>
+        <div class="nav">
+        <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{%url 'home'%}" class="nav-link" >GALLERY</a></li>  
+        <li class="nav-item"><a href="{%url 'about'%}" class="nav-link">ABOUT</a></li>
+        <li class="nav-item"><a href="{%url 'blog'%}" class="nav-link">BLOG</a></li>
+        <li class="nav-item"><a href="{%url 'contact'%}" class="nav-link">CONTACT</a></li>
+        <li class="nav-item"><a href="{%url 'register'%}" class="nav-link">REGISTER</a></li>  
+        </ul>
+        </div>
+
+
+
+
+
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="False" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'logout'%}">Logout</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+                </li>
+
+              
+
+
+
+
+                <style>
+
+                  .js-clock{
+                          float: right;
+                        }
+                              .clock {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateX(-50%) translateY(-50%);
+                            color: #060606;
+                            font-size: 15px;
+                            font-family: Orbitron;
+                            margin-top: 10px;
+                            left: 260px;
+                          
+                            bottom: 10px;
+                        }
+                  
+                        .gr{
+                            color:#bcccbc;
+                            font-size: 20px;
+                            bottom: 10px;
+                        }
+                            </style>
+                        
+<div class="js-clock">
+                <head>
+                  <link rel="stylesheet" href="digital clock.css">
+              </head>
+              <body>
+                  <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+                  <script src="./digital clock.js"></script>
+                      <h1 class="gr" id="lblGreetings"></h1>
+              </body>
+
+        
+      <script>
+      
+        function showTime(){
+            var date = new Date();
+            var h = date.getHours(); // 0 - 23
+            var m = date.getMinutes(); // 0 - 59
+            var s = date.getSeconds(); // 0 - 59
+            var session = "AM";
+            if(h == 0){
+                h = 12;
+            }
+            if(h > 12){
+                h = h - 12;
+                session = "PM";}
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+            setTimeout(showTime, 1000);
+            var myDate = new Date();
+            var hrs = myDate.getHours();
+            var greet;
+            if (hrs < 12)
+        
+                greet = 'Good Morning  ' ;
+            else if (hrs >= 12 && hrs <= 17)
+                greet = 'Good Afternoon ';
+            else if (hrs >= 17 && hrs <= 24)
+                greet = 'Good Evening ' ;
+        
+            document.getElementById('lblGreetings').innerHTML =
+                '<b>' + greet ;
+            }
+        showTime();
+            </script>
+</div>
+          
+                {% else %}
+          
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'login'%}">Login</a>
+                </li>
+          
+                {% endif %}
+              </ul>
+            </div>
+
+          </nav>
+
+
+
+
+    
+    </header>
+    <div class="messages" >{% include 'login/messages.html' %}</div>
+
+    </div>
+
+</main>
+
+
+

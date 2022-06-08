@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% block contentblog %} 
+{% load static %}
+<style>
+    .blog{
+        border: hidden ;
+        margin-bottom: 15px;
+        padding: 50px;
+        text-align:center ;
+        border-radius: 50px;
+        background-color: #dbe5db;
+        filter: alpha(opacity=60);
+        }
+</style>
+<main class="container">
+    <div class="blog" >
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">blog post</h1>
+        <p class="lead my-3">  </p>
+    </div>
+    </div>
+    {% for x in post.all %}
+    <div class="row mb-2">
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+        <div class="post" >
+            <h3 class="mb-0"> {{x.title}} </h3>
+            <div class="mb-1 text-muted"> {{x.date}} </div>
+            <p class="card-text mb-auto"> {{x.text}} </p></div>
+        </div>
+        </div>
+    </div>
+    {% endfor %} <!--The end of the loop blog -->
+{% endblock contentblog %}
+
