@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os 
-import django_heroku
 
 from django.contrib.messages import constants as messages
 
@@ -153,5 +152,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#activate django_heroku
-django_heroku.settings(locals())
